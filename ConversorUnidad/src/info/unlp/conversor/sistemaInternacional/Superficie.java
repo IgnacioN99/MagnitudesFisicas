@@ -5,8 +5,12 @@ import info.unlp.conversor.TipoMagnitud;
 
 public class Superficie extends Magnitud {
 
-	public Superficie(TipoMagnitud id, int sistema) {
+	Magnitud m1,m2;
+
+	public Superficie(TipoMagnitud id, int sistema, double cant1, double cant2) {
 		super(id, sistema);
+		m1 = new Metro(cant1,"m");
+		m2= new Metro(cant2,"m");
 		// TODO Auto-generated constructor stub
 	}
 

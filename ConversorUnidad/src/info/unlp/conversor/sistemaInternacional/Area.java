@@ -5,9 +5,12 @@ import info.unlp.conversor.TipoMagnitud;
 
 public class Area extends Magnitud {
 
-	public Area(TipoMagnitud id, int sistema) {
+	Magnitud m1,m2;
+
+	public Area(TipoMagnitud id, int sistema, double cant1, double cant2) {
 		super(id, sistema);
-		
+		m1 = new Metro(cant1, "m");																																																																																																											
+		m2 = new Metro(cant2, "m");
 	}
 
 	@Override
