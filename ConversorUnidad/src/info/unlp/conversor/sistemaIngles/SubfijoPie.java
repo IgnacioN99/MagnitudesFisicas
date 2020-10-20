@@ -1,6 +1,8 @@
 package info.unlp.conversor.sistemaIngles;
 
-public enum SubfijoPie {
+import info.unlp.conversor.Subfijo;
+
+public enum SubfijoPie implements Subfijo {
 	pulgadas("in",0.083),
 	pie("ft",1),
 	yarda("yd",3),
@@ -15,6 +17,6 @@ public enum SubfijoPie {
 		return this.abrev;
 	}
 	public double mult() {
-		return this.multiplicador;
+		return (this.multiplicador);
 	}
 }

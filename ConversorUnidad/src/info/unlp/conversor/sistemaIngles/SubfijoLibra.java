@@ -1,9 +1,11 @@
 package info.unlp.conversor.sistemaIngles;
 
-public enum SubfijoLibra {
-	Grano("gr",0.00014),
+import info.unlp.conversor.Subfijo;
+
+public enum SubfijoLibra implements Subfijo {
+	Grano("gr",0.00014286),
 	Libra("lb",1),
-	Onza("oz",16);
+	Onza("oz",0.0625);
 	private String abrev;
 	private double multiplicador;
 	SubfijoLibra(String tipo, double mult) {
@@ -14,6 +16,6 @@ public enum SubfijoLibra {
 		return this.abrev;
 	}
 	public double mult() {
-		return this.multiplicador;
+		return (multiplicador);
 	}
 }

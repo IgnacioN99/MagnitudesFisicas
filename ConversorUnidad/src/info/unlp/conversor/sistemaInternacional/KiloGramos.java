@@ -5,28 +5,31 @@ import info.unlp.conversor.TipoMagnitud;
 
 public class KiloGramos extends Peso {
 
-	public KiloGramos() {
+	public KiloGramos(double cantidad, String unidad) {
 		super(TipoMagnitud.KILOGRAMOS, 1);
-		// TODO Auto-generated constructor stub
+		super.setCantidad(cantidad);
+		cambioLocal(unidad);
+		super.setSb(SubfijoKilogramos.Kilogramo);
 	}
-
-	private SubfijoKilogramos s = SubfijoKilogramos.Kilogramo;
 
 	public double cambiarSistema() {
 		return (super.getCantidad() * 2.20462);
 	}
+
 	@Override
-	public void cambioLocal(String unidad) {
+	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
 		case "mg":
-			super.setCantidad(getCantidad()*SubfijoKilogramos.Miligramo.mult());
-			break;
+			super.setCantidad(getCantidad() * SubfijoKilogramos.Miligramo.mult());
+			return true;
 		case "g":
-			super.setCantidad(getCantidad()*SubfijoKilogramos.Gramo.mult());
-			break;			
+			super.setCantidad(getCantidad() * SubfijoKilogramos.Gramo.mult());
+			return true;
 		case "ton":
-			super.setCantidad(getCantidad()*SubfijoKilogramos.Tonelada.mult());
-			break;
+			super.setCantidad(getCantidad() * SubfijoKilogramos.Tonelada.mult());
+			return true;
+		default:
+			return false;
 		}
 	}
 

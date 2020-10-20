@@ -3,27 +3,31 @@ import info.unlp.conversor.Longitud;
 import info.unlp.conversor.TipoMagnitud;
 
 public class Pie extends Longitud {
-	public Pie() {
+	public Pie(double cantidad,String unidad) {
 		super(TipoMagnitud.PIE,2);
+		super.setCantidad(cantidad);
+		cambioLocal(unidad);
+		super.setSb(SubfijoPie.pie);
 	}
 
-    private SubfijoPie s = SubfijoPie.pie;
 
     public double cambiarSistema()
     {
         return (super.getCantidad()*0.3048);
     }
-	public void cambioLocal(String unidad) {
+	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
 		case "mi":
 			super.setCantidad(getCantidad()*SubfijoPie.milla.mult());
-			break;
+			return true;
 		case "in":
 			super.setCantidad(getCantidad()*SubfijoPie.pulgadas.mult());
-			break;			
+			return true;			
 		case "yd":
 			super.setCantidad(getCantidad()*SubfijoPie.yarda.mult());
-			break;
+			return true;
+		default:
+			return false;
 		}
 	}
 

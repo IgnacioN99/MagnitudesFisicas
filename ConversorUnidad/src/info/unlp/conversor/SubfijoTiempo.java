@@ -1,6 +1,6 @@
 package info.unlp.conversor;
 
-public enum SubfijoTiempo {
+public enum SubfijoTiempo implements Subfijo {
 	MiliSegundo("mm", 0.001), Segundo("s", 1), Minuto("min", 60), Hora("h", 3600);
 
 	private String abrev;

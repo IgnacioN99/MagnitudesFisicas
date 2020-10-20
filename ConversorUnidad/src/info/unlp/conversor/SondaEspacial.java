@@ -4,8 +4,8 @@ public class SondaEspacial <T> {
 	private double cantidad;
 	private int potencia;
 	public SondaEspacial(T dato) {
-		if(dato instanceof Magnitud) {
-			((Magnitud) dato).getId();
+		if(dato.hashCode()==1) {
+			System.out.println("NYES");
 		}
 	}
 	public double getCantidad() {

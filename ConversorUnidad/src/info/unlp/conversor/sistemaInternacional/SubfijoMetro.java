@@ -1,8 +1,10 @@
 package info.unlp.conversor.sistemaInternacional;
 
-public enum SubfijoMetro {
+import info.unlp.conversor.Subfijo;
+
+public enum SubfijoMetro implements Subfijo {
 	MiliMetro("mm",0.001),
-	CentiMetro("mm",0.001),
+	CentiMetro("mm",0.01),
 	Metro("m",1),
 	KiloMetro("km",1000);
 	private String abrev;
@@ -15,6 +17,6 @@ public enum SubfijoMetro {
 		return this.abrev;
 	}
 	public double mult() {
-		return this.multiplicador;
+		return (this.multiplicador);
 	}
 }

@@ -1,6 +1,8 @@
 package info.unlp.conversor.sistemaInternacional;
 
-public enum SubfijoKilogramos {
+import info.unlp.conversor.Subfijo;
+
+public enum SubfijoKilogramos implements Subfijo {
 	Miligramo("mg",0.000001),
 	Gramo("g",0.001),
 	Kilogramo("kg",1),
@@ -15,6 +17,6 @@ public enum SubfijoKilogramos {
 		return this.abrev;
 	}
 	public double mult() {
-		return this.multiplicador;
+		return (this.multiplicador);
 	}
 }

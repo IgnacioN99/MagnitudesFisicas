@@ -2,15 +2,22 @@ package info.unlp.conversor.sistemaIngles;
 import info.unlp.conversor.Peso;
 import info.unlp.conversor.TipoMagnitud;
 
+/**
+ * @author Nacho
+ *
+ */
 public class Libra extends Peso {
-	public Libra() {
+	/**
+	 * No importa que tipo de unidad se pase, la misma sera truncada a libra por cuestion de comodidad
+	 * @param cantidad : cantidad de lb,oz,gr
+	 * @param unidad : unidad del parametro cantidad
+	 */
+	public Libra(double cantidad,String unidad) {
 		super(TipoMagnitud.LIBRA,2);
+		super.setCantidad(cantidad);
+		cambioLocal(unidad);
+		super.setSb(SubfijoLibra.Libra);
 	}
-
-
-	private SubfijoLibra s = SubfijoLibra.Libra;
-	
-
 	/**
 	 * Cambia de sistema Ingles a Sistema Internacional.
 	 *
@@ -21,16 +28,22 @@ public class Libra extends Peso {
 	}
 
 
+
 	@Override
-	public void cambioLocal(String unidad) {
-		// TODO Auto-generated method stub
+	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
 		case "gr":
 			super.setCantidad(getCantidad()*SubfijoLibra.Grano.mult());
-			break;
+			return true;
 		case "oz":
 			super.setCantidad(getCantidad()*SubfijoLibra.Onza.mult());
-			break;			
+			return true;
+		case "lb":
+			super.setCantidad(getCantidad());
+			return true;
+		default:
+			System.out.println("Por favor ingrese una unidad valida");
+			return false;
 		}
 	}
 
