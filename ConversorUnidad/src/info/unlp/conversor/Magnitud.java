@@ -3,8 +3,8 @@ package info.unlp.conversor;
 
 
 public abstract class Magnitud {
-	private TipoMagnitud id;
-	private Subfijo sb;
+	private TipoMagnitud id=null;
+	private Subfijo sb=null;
 	private double cantidad;
 	private int sistema;
 

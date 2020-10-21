@@ -1,12 +1,13 @@
 package info.unlp.conversor;
 
+
 public class SondaEspacial <T> {
 	private double cantidad;
 	private int potencia;
-	public SondaEspacial(T dato) {
-		if(dato.hashCode()==1) {
-			System.out.println("NYES");
-		}
+	private Magnitud m;
+	public SondaEspacial() {
+
+		
 	}
 	public double getCantidad() {
 		return cantidad;

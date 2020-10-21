@@ -9,8 +9,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Magnitud m = new Tiempo(10, "min");
-		System.out.println(m.toString());
+		
+		Magnitud k = new KiloGramos(20, "g");
+		System.out.println(k.toString());
+		k.cambioLocal("ton");
+		System.out.println(k.toString());
 	}
 
 }
