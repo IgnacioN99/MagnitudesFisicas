@@ -10,6 +10,5 @@ public abstract class Peso extends Magnitud{
 		return 2;
 	}
 
-	@Override
-	public abstract double cambiarSistema();
+	public abstract Magnitud cambiarSistema(String unidad);
 }

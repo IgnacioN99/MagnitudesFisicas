@@ -13,11 +13,6 @@ public class Area extends Magnitud {
 		m2 = new Metro(cant2, "m");
 	}
 
-	@Override
-	public double cambiarSistema() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public boolean cambioLocal(String unidad) {

@@ -15,10 +15,6 @@ public class Tiempo extends Magnitud {
 		return 3;
 	}
 
-	public double cambiarSistema() {
-		return (super.getCantidad());
-	}
-
 	@Override
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
@@ -107,4 +103,6 @@ public class Tiempo extends Magnitud {
 		}
 		super.setSb(SubfijoTiempo.MiliSegundo);
 	}
+
+
 }

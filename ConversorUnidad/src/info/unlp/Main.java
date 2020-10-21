@@ -10,10 +10,9 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Magnitud k = new KiloGramos(20, "g");
+		Magnitud k = new Metro(1, "km");
 		System.out.println(k.toString());
-		k.cambioLocal("ton");
-		System.out.println(k.toString());
+		System.out.println(k.cambiarSistema("in"));
 	}
 
 }

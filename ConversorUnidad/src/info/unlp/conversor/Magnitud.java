@@ -14,12 +14,7 @@ public abstract class Magnitud {
 		this.id = id;
 	}
 
-	/**
-	 * Cambia la unidad de sistema Internacional a Sitema ingles y Viceversa
-	 *
-	 * @return the double
-	 */
-	public abstract double cambiarSistema();
+	
 
 	/**
 	 * Cambia la unidad local. Es decir que si esta en cm pasa a metros, de gramos a
@@ -30,6 +25,9 @@ public abstract class Magnitud {
 	 */
 	public abstract boolean cambioLocal(String unidad);
 
+	public Magnitud cambiarSistema(String unidad) {
+		return null;
+	}
 	public int getSistema() {
 		return sistema;
 	}

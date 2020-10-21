@@ -14,11 +14,7 @@ public class Superficie extends Magnitud {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public double cambiarSistema() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	@Override
 	public boolean cambioLocal(String unidad) {

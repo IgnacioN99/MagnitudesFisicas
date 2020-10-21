@@ -1,6 +1,8 @@
 package info.unlp.conversor.sistemaIngles;
 import info.unlp.conversor.Longitud;
+import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.TipoMagnitud;
+import info.unlp.conversor.sistemaInternacional.Metro;
 
 public class Pie extends Longitud {
 	public Pie(double cantidad,String unidad) {
@@ -11,9 +13,13 @@ public class Pie extends Longitud {
 	}
 
 
-    public double cambiarSistema()
+    public Magnitud cambiarSistema(String unidad)
     {
-        return (super.getCantidad()*0.3048);
+    	Magnitud m;
+    	cambioLocal("ft");
+    	m=new Metro(getCantidad()*0.3048,"m");
+    	m.cambioLocal(unidad);
+        return m;
     }
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {

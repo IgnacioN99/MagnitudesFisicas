@@ -10,6 +10,6 @@ public abstract class Longitud extends Magnitud{
 		// TODO Auto-generated method stub
 		return 1;
 	}
-	@Override
-	public abstract double cambiarSistema();
+
+	public abstract Magnitud cambiarSistema(String unidad);
 }

@@ -1,7 +1,9 @@
 package info.unlp.conversor.sistemaInternacional;
 
 import info.unlp.conversor.Longitud;
+import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.TipoMagnitud;
+import info.unlp.conversor.sistemaIngles.Pie;
 
 public class Metro extends Longitud {
 
@@ -10,9 +12,13 @@ public class Metro extends Longitud {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-
-	public double cambiarSistema() {
-		return (super.getCantidad() * 3.28084);
+	@Override
+	public Magnitud cambiarSistema(String unidad) {
+		Magnitud m;
+		cambioLocal("m");
+		m=new Pie(super.getCantidad()*3.2808,"ft");
+		m.cambioLocal(unidad);
+		return m;
 	}
 
 	@Override
