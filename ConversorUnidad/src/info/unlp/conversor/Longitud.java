@@ -11,5 +11,4 @@ public abstract class Longitud extends Magnitud{
 		return 1;
 	}
 
-	public abstract Magnitud cambiarSistema(String unidad);
 }

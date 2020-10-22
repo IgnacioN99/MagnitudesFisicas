@@ -12,7 +12,8 @@ public class Main {
 		
 		Magnitud k = new Metro(1, "km");
 		System.out.println(k.toString());
-		System.out.println(k.cambiarSistema("in"));
+		Magnitud a =new CambioDeMagnitud().cambiarSistema("ft", k);
+		System.out.println(a);
 	}
 
 }

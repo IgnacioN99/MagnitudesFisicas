@@ -24,10 +24,7 @@ public abstract class Magnitud {
 	 * @return Si el cambio fue exitoso
 	 */
 	public abstract boolean cambioLocal(String unidad);
-
-	public Magnitud cambiarSistema(String unidad) {
-		return null;
-	}
+	
 	public int getSistema() {
 		return sistema;
 	}

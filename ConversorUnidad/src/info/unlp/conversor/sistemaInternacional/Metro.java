@@ -12,14 +12,12 @@ public class Metro extends Longitud {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
+	
 	@Override
-	public Magnitud cambiarSistema(String unidad) {
-		Magnitud m;
-		cambioLocal("m");
-		m=new Pie(super.getCantidad()*3.2808,"ft");
-		m.cambioLocal(unidad);
-		return m;
+	public int hashCode() {	
+		return 1;
 	}
+	
 
 	@Override
 	public boolean cambioLocal(String unidad) {

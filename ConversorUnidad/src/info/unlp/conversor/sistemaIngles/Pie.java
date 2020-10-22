@@ -11,16 +11,13 @@ public class Pie extends Longitud {
 		cambioLocal(unidad);
 		super.setSb(SubfijoPie.pie);
 	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 4;
+	}
 
 
-    public Magnitud cambiarSistema(String unidad)
-    {
-    	Magnitud m;
-    	cambioLocal("ft");
-    	m=new Metro(getCantidad()*0.3048,"m");
-    	m.cambioLocal(unidad);
-        return m;
-    }
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
 		case "mi":

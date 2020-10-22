@@ -1,8 +1,6 @@
 package info.unlp.conversor.sistemaIngles;
-import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.Peso;
 import info.unlp.conversor.TipoMagnitud;
-import info.unlp.conversor.sistemaInternacional.KiloGramos;
 
 /**
  * @author Nacho
@@ -18,19 +16,11 @@ public class Libra extends Peso {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	/**
-	 * Cambia de sistema Ingles a Sistema Internacional.
-	 *
-	 * @return el valor dado convertido a sistema Internacional
-	 */
-	public Magnitud cambiarSistema(String unidad) {
-		Magnitud m;
-		cambioLocal("lb");
-		m=new KiloGramos(getCantidad()*0.453592, "kg");
-		m.cambioLocal(unidad);
-		return m;
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 3;
 	}
-
 
 
 	@Override
