@@ -1,9 +1,7 @@
 package info.unlp.conversor.sistemaInternacional;
 
 import info.unlp.conversor.Longitud;
-import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.TipoMagnitud;
-import info.unlp.conversor.sistemaIngles.Pie;
 
 public class Metro extends Longitud {
 
@@ -12,10 +10,10 @@ public class Metro extends Longitud {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	
-	@Override
-	public int hashCode() {	
-		return 1;
+	public Metro() {
+		super(TipoMagnitud.METRO,1);
+		super.setCantidad(0);
+		cambioLocal("m");
 	}
 	
 

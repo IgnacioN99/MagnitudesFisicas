@@ -11,9 +11,10 @@ public class KiloGramos extends Peso {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	@Override
-	public int hashCode() {
-		return 2;
+	public KiloGramos() {
+		super(TipoMagnitud.KILOGRAMOS, 1);
+		super.setCantidad(0);
+		cambioLocal("kg");
 	}
 
 

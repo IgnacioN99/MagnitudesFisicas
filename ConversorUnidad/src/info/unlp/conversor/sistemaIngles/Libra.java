@@ -16,11 +16,12 @@ public class Libra extends Peso {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return 3;
+	public Libra() {
+		super(TipoMagnitud.LIBRA,2);
+		super.setCantidad(0);
+		cambioLocal("lb");
 	}
+
 
 
 	@Override

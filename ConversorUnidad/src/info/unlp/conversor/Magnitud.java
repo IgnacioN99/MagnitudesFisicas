@@ -13,6 +13,9 @@ public abstract class Magnitud {
 		this.sistema = sistema;
 		this.id = id;
 	}
+	public Magnitud(TipoMagnitud id) {
+		this.id = id;
+	}
 
 	
 
@@ -23,7 +26,9 @@ public abstract class Magnitud {
 	 * @param unidad the unidad
 	 * @return Si el cambio fue exitoso
 	 */
-	public abstract boolean cambioLocal(String unidad);
+	public boolean cambioLocal(String unidad) {
+		return false;
+	}
 	
 	public int getSistema() {
 		return sistema;
@@ -59,6 +64,27 @@ public abstract class Magnitud {
 
 	public String toString() {
 		return this.cantidad + " " + this.sb;
+	}
+	public Magnitud suma(Magnitud m) {
+		Magnitud ret=this;
+		if(m.getSistema()!=this.getSistema()) {
+			Magnitud aux= CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(),m);
+			ret.setCantidad(getCantidad()+aux.getCantidad());
+		}else {
+			m.cambioLocal(this.sb.abrev());
+		}
+		return ret;
+	}
+	public Magnitud resta(Magnitud m) {
+		Magnitud ret=this;
+		if(m.getSistema()!=this.getSistema()) {
+			Magnitud aux= CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(),m);
+			ret.setCantidad(getCantidad()-aux.getCantidad());
+		}else {
+			m.cambioLocal(this.sb.abrev());
+			ret.setCantidad(getCantidad()-m.getCantidad());
+		}
+		return ret;
 	}
 
 }

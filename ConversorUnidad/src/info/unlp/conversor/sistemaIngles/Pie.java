@@ -1,23 +1,19 @@
 package info.unlp.conversor.sistemaIngles;
 import info.unlp.conversor.Longitud;
-import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.TipoMagnitud;
-import info.unlp.conversor.sistemaInternacional.Metro;
 
 public class Pie extends Longitud {
 	public Pie(double cantidad,String unidad) {
 		super(TipoMagnitud.PIE,2);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
-		super.setSb(SubfijoPie.pie);
 	}
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return 4;
+	public Pie() {
+		super(TipoMagnitud.PIE,2);
+		super.setCantidad(0);
+		cambioLocal("ft");
 	}
-
-
+	
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
 		case "mi":
@@ -31,6 +27,7 @@ public class Pie extends Longitud {
 			return true;
 		case "ft":
 			this.cambioft();
+			return true;
 		default:
 			return false;
 		}

@@ -3,16 +3,15 @@ package info.unlp.conversor;
 public class Tiempo extends Magnitud {
 
 	public Tiempo(double cantidad, String unidad) {
-		super(TipoMagnitud.SEGUNDOS, 1);
+		super(TipoMagnitud.TIEMPO, 1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 
 	}
-
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return 3;
+	public Tiempo() {
+		super(TipoMagnitud.TIEMPO,1);
+		super.setCantidad(0);
+		cambioLocal("s");
 	}
 
 	@Override
@@ -37,7 +36,7 @@ public class Tiempo extends Magnitud {
 	}
 
 	private void cambioH() {
-		if (super.getSb().abrev() != null) {
+		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
 			case "s":
 				super.setCantidad(getCantidad() / 3600);
@@ -54,7 +53,7 @@ public class Tiempo extends Magnitud {
 	}
 
 	private void cambioMin() {
-		if (super.getSb().abrev() != null) {
+		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
 			case "h":
 				super.setCantidad(getCantidad() / 0.016667);
@@ -71,7 +70,7 @@ public class Tiempo extends Magnitud {
 	}
 
 	private void cambioMs() {
-		if (super.getSb().abrev() != null) {
+		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
 			case "h":
 				super.setCantidad(getCantidad() * 3600000);
@@ -88,7 +87,7 @@ public class Tiempo extends Magnitud {
 	}
 
 	private void cambioS() {
-		if (super.getSb().abrev() != null) {
+		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
 			case "h":
 				super.setCantidad(getCantidad() / 0.00027778);
@@ -101,8 +100,7 @@ public class Tiempo extends Magnitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoTiempo.MiliSegundo);
+		super.setSb(SubfijoTiempo.Segundo);
 	}
-
 
 }
