@@ -13,12 +13,6 @@ import info.unlp.conversor.sistemaInternacional.Metro;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-//		Magnitud k = new Metro(1, "km");
-//		System.out.println(k.toString());
-//		Magnitud a =new CambioDeMagnitud().cambiarSistema("ft", k);
-//		System.out.println(a);
 		List<Pie> l = new LinkedList<Pie>();
 		SondaEspacial<Metro> sonda= new SondaEspacial<Metro>();
 		Scanner s= new Scanner(System.in);
