@@ -6,6 +6,4 @@ public abstract class Longitud extends Magnitud{
 		super(id,sistema);
 	}
 
-	@Override
-	public abstract double cambiarSistema();
 }

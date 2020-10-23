@@ -5,6 +5,4 @@ public abstract class Peso extends Magnitud{
 		super(id,sistema);
 	}
 
-	@Override
-	public abstract double cambiarSistema();
 }
