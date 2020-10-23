@@ -96,5 +96,22 @@ public class Superficie extends Magnitud {
 		}
 		return ret;
 	}
+	
+	public int comparar(Magnitud m) {
+		if(this.getSistema()!=m.getSistema()) {
+			m=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
+		}else {
+			m.cambioLocal(this.getSb().abrev());
+		}
+		if (this.getCantidad() == m.getCantidad())
+			return 0;
+		else if(this.getCantidad()>m.getCantidad())
+			return 1;
+		else 
+			return -1;
+	}
+	public double getCantidad() {
+		return m1.getCantidad()*m2.getCantidad();
+	}
 
 }

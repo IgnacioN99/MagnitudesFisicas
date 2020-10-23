@@ -1,23 +1,19 @@
 package info.unlp.conversor;
 
-
-
 public abstract class Magnitud {
-	private TipoMagnitud id=null;
-	private Subfijo sb=null;
+	private TipoMagnitud id = null;
+	private Subfijo sb = null;
 	private double cantidad;
 	private int sistema;
-
 
 	public Magnitud(TipoMagnitud id, int sistema) {
 		this.sistema = sistema;
 		this.id = id;
 	}
+
 	public Magnitud(TipoMagnitud id) {
 		this.id = id;
 	}
-
-	
 
 	/**
 	 * Cambia la unidad local. Es decir que si esta en cm pasa a metros, de gramos a
@@ -29,7 +25,7 @@ public abstract class Magnitud {
 	public boolean cambioLocal(String unidad) {
 		return false;
 	}
-	
+
 	public int getSistema() {
 		return sistema;
 	}
@@ -65,26 +61,42 @@ public abstract class Magnitud {
 	public String toString() {
 		return this.cantidad + " " + this.sb;
 	}
+
 	public Magnitud suma(Magnitud m) {
-		Magnitud ret=this;
-		if(m.getSistema()!=this.getSistema()) {
-			Magnitud aux= CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(),m);
-			ret.setCantidad(getCantidad()+aux.getCantidad());
-		}else {
+		Magnitud ret = this;
+		if (m.getSistema() != this.getSistema()) {
+			Magnitud aux = CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(), m);
+			ret.setCantidad(getCantidad() + aux.getCantidad());
+		} else {
 			m.cambioLocal(this.sb.abrev());
 		}
 		return ret;
 	}
+
 	public Magnitud resta(Magnitud m) {
-		Magnitud ret=this;
-		if(m.getSistema()!=this.getSistema()) {
-			Magnitud aux= CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(),m);
-			ret.setCantidad(getCantidad()-aux.getCantidad());
-		}else {
+		Magnitud ret = this;
+		if (m.getSistema() != this.getSistema()) {
+			Magnitud aux = CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(), m);
+			ret.setCantidad(getCantidad() - aux.getCantidad());
+		} else {
 			m.cambioLocal(this.sb.abrev());
-			ret.setCantidad(getCantidad()-m.getCantidad());
+			ret.setCantidad(getCantidad() - m.getCantidad());
 		}
 		return ret;
+	}
+
+	public int comparar(Magnitud m) {
+		if (m.getSistema() != this.getSistema()) {
+			m = CambioDeMagnitud.getInstance().cambiarSistema(this.sb.abrev(), m);
+		} else {
+			m.cambioLocal(this.sb.abrev());
+		}
+		if (this.getCantidad() == m.getCantidad())
+			return 0;
+		else if(this.getCantidad()>m.getCantidad())
+			return 1;
+		else 
+			return -1;
 	}
 
 }

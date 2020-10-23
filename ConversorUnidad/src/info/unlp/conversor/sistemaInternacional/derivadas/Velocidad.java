@@ -19,6 +19,31 @@ public class Velocidad extends Magnitud {
 		super.setSb(m.getSb());
 		segundo = s.getSb();
 	}
+	public Velocidad(double cantm, double cants,String unidadD, String unidadT) {
+		super(TipoMagnitud.VELOCIDAD, 1);
+		if (m.cambioLocal(unidadD)) {
+			setM(new Metro(cantm / cants, unidadD));
+		} else {
+			setM(new Pie(cantm / cants, unidadD));
+		}
+		setS(new Tiempo(1,unidadT));
+		super.setSistema(m.getSistema());
+		super.setSb(m.getSb());
+		segundo = s.getSb();
+	}
+	public Velocidad(double cantm, double cants,String unidad) {
+		super(TipoMagnitud.VELOCIDAD, 1);
+		String[] aux = unidad.split("/");
+		if (m.cambioLocal(aux[0])) {
+			setM(new Metro(cantm / cants, aux[0]));
+		} else {
+			setM(new Pie(cantm / cants, aux[0]));
+		}
+		setS(new Tiempo(1, aux[1]));
+		super.setSistema(m.getSistema());
+		super.setSb(m.getSb());
+		segundo = s.getSb();
+	}
 
 	public Velocidad(double velocidad) {
 		super(TipoMagnitud.VELOCIDAD, 1);
@@ -26,7 +51,6 @@ public class Velocidad extends Magnitud {
 		setM(new Tiempo(1, "s"));
 		super.setSb(m.getSb());
 		segundo = s.getSb();
-
 	}
 
 	public Velocidad(double velocidad, String unidadD, String unidadT) {
@@ -40,7 +64,6 @@ public class Velocidad extends Magnitud {
 		super.setSistema(getM().getSistema());
 		super.setSb(m.getSb());
 		segundo = s.getSb();
-
 	}
 
 	public Velocidad(double velocidad, String unidad) {
@@ -55,7 +78,6 @@ public class Velocidad extends Magnitud {
 		super.setSistema(m.getSistema());
 		super.setSb(m.getSb());
 		segundo = s.getSb();
-
 	}
 
 	public boolean cambioLocal(String unidadD, String unidadT) {
@@ -108,6 +130,24 @@ public class Velocidad extends Magnitud {
 			ret = new Velocidad(this.getCantidad() + m.getCantidad(), this.getSb().abrev() + "/" + segundo.abrev());
 		}
 		return ret;
+	}
+	
+	public int comparar(Magnitud m) {
+		if(this.getSistema()!=m.getSistema()) {
+			m=CambioDeMagnitud.getInstance().cambiarSistema(this.getSb().abrev() + "/" + segundo.abrev(),
+					m);
+		}else {
+			((Velocidad) m).cambioLocal(m.getSb().abrev(), s.getSb().abrev());
+		}
+		if (this.getCantidad() == m.getCantidad())
+			return 0;
+		else if(this.getCantidad()>m.getCantidad())
+			return 1;
+		else 
+			return -1;
+	}
+	public double getCantidad() {
+		return m.getCantidad() * s.getCantidad();
 	}
 
 }
