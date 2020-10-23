@@ -4,14 +4,14 @@ import info.unlp.conversor.Peso;
 import info.unlp.conversor.TipoMagnitud;
 
 
-public class KiloGramos extends Peso {
+public class PesoInternacional extends Peso {
 
-	public KiloGramos(double cantidad, String unidad) {
+	public PesoInternacional(double cantidad, String unidad) {
 		super(TipoMagnitud.KILOGRAMOS, 1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	public KiloGramos() {
+	public PesoInternacional() {
 		super(TipoMagnitud.KILOGRAMOS, 1);
 		super.setCantidad(0);
 		cambioLocal("kg");

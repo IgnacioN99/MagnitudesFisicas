@@ -6,17 +6,17 @@ import info.unlp.conversor.TipoMagnitud;
  * @author Nacho
  *
  */
-public class Libra extends Peso {
+public class PesoIngles extends Peso {
 	/**
 	 * @param cantidad : cantidad de lb,oz,gr
 	 * @param unidad : unidad del parametro cantidad
 	 */
-	public Libra(double cantidad,String unidad) {
+	public PesoIngles(double cantidad,String unidad) {
 		super(TipoMagnitud.LIBRA,2);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	public Libra() {
+	public PesoIngles() {
 		super(TipoMagnitud.LIBRA,2);
 		super.setCantidad(0);
 		cambioLocal("lb");

@@ -3,14 +3,14 @@ package info.unlp.conversor.sistemaInternacional;
 import info.unlp.conversor.Longitud;
 import info.unlp.conversor.TipoMagnitud;
 
-public class Metro extends Longitud {
+public class LongInternacional extends Longitud {
 
-	public Metro(double cantidad, String unidad) {
+	public LongInternacional(double cantidad, String unidad) {
 		super(TipoMagnitud.METRO, 1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
-	public Metro() {
+	public LongInternacional() {
 		super(TipoMagnitud.METRO,1);
 		super.setCantidad(0);
 		cambioLocal("m");

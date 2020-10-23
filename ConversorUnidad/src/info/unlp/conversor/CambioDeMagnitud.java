@@ -1,9 +1,9 @@
 package info.unlp.conversor;
 
-import info.unlp.conversor.sistemaIngles.Libra;
-import info.unlp.conversor.sistemaIngles.Pie;
-import info.unlp.conversor.sistemaInternacional.KiloGramos;
-import info.unlp.conversor.sistemaInternacional.Metro;
+import info.unlp.conversor.sistemaIngles.PesoIngles;
+import info.unlp.conversor.sistemaIngles.LongIngles;
+import info.unlp.conversor.sistemaInternacional.PesoInternacional;
+import info.unlp.conversor.sistemaInternacional.LongInternacional;
 import info.unlp.conversor.sistemaInternacional.derivadas.Superficie;
 import info.unlp.conversor.sistemaInternacional.derivadas.Velocidad;
 import info.unlp.conversor.sistemaInternacional.derivadas.Volumen;
@@ -18,13 +18,13 @@ public class CambioDeMagnitud {
 	public Magnitud cambiarSistema(String unidad, Magnitud algo) {
 		switch (algo.getId()) {
 		case METRO:
-			return cambiarSistema(unidad, (Metro) algo);
+			return cambiarSistema(unidad, (LongInternacional) algo);
 		case KILOGRAMOS:
-			return cambiarSistema(unidad, (KiloGramos)algo);
+			return cambiarSistema(unidad, (PesoInternacional)algo);
 		case LIBRA:
-			return cambiarSistema(unidad, (Libra)algo);
+			return cambiarSistema(unidad, (PesoIngles)algo);
 		case PIE:
-			return cambiarSistema(unidad, (Pie)algo);
+			return cambiarSistema(unidad, (LongIngles)algo);
 		case SUP:
 			return cambiarSistema((Superficie)algo, unidad);
 		case VELOCIDAD:
@@ -43,34 +43,34 @@ public class CambioDeMagnitud {
 		v.setM2(this.cambiarSistema(unidad, v.getM2()));
 		return v;
 	}
-	private Magnitud cambiarSistema(String unidad, Metro distIntl) {
-		Pie m;
+	private Magnitud cambiarSistema(String unidad, LongInternacional distIntl) {
+		LongIngles m;
 		distIntl.cambioLocal("m");
-		m = new Pie(distIntl.getCantidad() * 3.2808, "ft");
+		m = new LongIngles(distIntl.getCantidad() * 3.2808, "ft");
 		m.cambioLocal(unidad);
 		return m;
 	}
 
-	private Magnitud cambiarSistema(String unidad, KiloGramos pesoIntl) {
-		Libra m;
+	private Magnitud cambiarSistema(String unidad, PesoInternacional pesoIntl) {
+		PesoIngles m;
 		pesoIntl.cambioLocal("kg");
-		m = new Libra(pesoIntl.getCantidad() * 2.2046, "lb");
+		m = new PesoIngles(pesoIntl.getCantidad() * 2.2046, "lb");
 		m.cambioLocal(unidad);
 		return m;
 	}
 
-	private Magnitud cambiarSistema(String unidad, Libra pesoIng) {
-		KiloGramos m;
+	private Magnitud cambiarSistema(String unidad, PesoIngles pesoIng) {
+		PesoInternacional m;
 		pesoIng.cambioLocal("lb");
-		m = new KiloGramos(pesoIng.getCantidad() * 0.453592, "kg");
+		m = new PesoInternacional(pesoIng.getCantidad() * 0.453592, "kg");
 		m.cambioLocal(unidad);
 		return m;
 	}
 
-	private Magnitud cambiarSistema(String unidad, Pie distIng) {
-		Metro m;
+	private Magnitud cambiarSistema(String unidad, LongIngles distIng) {
+		LongInternacional m;
 		distIng.cambioLocal("ft");
-		m = new Metro(distIng.getCantidad() * 0.3048, "m");
+		m = new LongInternacional(distIng.getCantidad() * 0.3048, "m");
 		m.cambioLocal(unidad);
 		return m;
 	}

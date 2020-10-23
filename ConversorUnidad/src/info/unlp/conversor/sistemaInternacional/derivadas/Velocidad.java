@@ -5,16 +5,16 @@ import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.Subfijo;
 import info.unlp.conversor.Tiempo;
 import info.unlp.conversor.TipoMagnitud;
-import info.unlp.conversor.sistemaIngles.Pie;
-import info.unlp.conversor.sistemaInternacional.Metro;
+import info.unlp.conversor.sistemaIngles.LongIngles;
+import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
 public class Velocidad extends Magnitud {
-	private Magnitud m = new Metro(), s;
+	private Magnitud m = new LongInternacional(), s;
 	private Subfijo segundo;
 
 	public Velocidad(double cantm, double cants) {
 		super(TipoMagnitud.VELOCIDAD, 1);
-		setM(new Metro(cantm / cants, "m"));
+		setM(new LongInternacional(cantm / cants, "m"));
 		setS(new Tiempo(1, "s"));
 		super.setSb(m.getSb());
 		segundo = s.getSb();
@@ -22,9 +22,9 @@ public class Velocidad extends Magnitud {
 	public Velocidad(double cantm, double cants,String unidadD, String unidadT) {
 		super(TipoMagnitud.VELOCIDAD, 1);
 		if (m.cambioLocal(unidadD)) {
-			setM(new Metro(cantm / cants, unidadD));
+			setM(new LongInternacional(cantm / cants, unidadD));
 		} else {
-			setM(new Pie(cantm / cants, unidadD));
+			setM(new LongIngles(cantm / cants, unidadD));
 		}
 		setS(new Tiempo(1,unidadT));
 		super.setSistema(m.getSistema());
@@ -35,9 +35,9 @@ public class Velocidad extends Magnitud {
 		super(TipoMagnitud.VELOCIDAD, 1);
 		String[] aux = unidad.split("/");
 		if (m.cambioLocal(aux[0])) {
-			setM(new Metro(cantm / cants, aux[0]));
+			setM(new LongInternacional(cantm / cants, aux[0]));
 		} else {
-			setM(new Pie(cantm / cants, aux[0]));
+			setM(new LongIngles(cantm / cants, aux[0]));
 		}
 		setS(new Tiempo(1, aux[1]));
 		super.setSistema(m.getSistema());
@@ -47,7 +47,7 @@ public class Velocidad extends Magnitud {
 
 	public Velocidad(double velocidad) {
 		super(TipoMagnitud.VELOCIDAD, 1);
-		setM(new Metro(velocidad, "m"));
+		setM(new LongInternacional(velocidad, "m"));
 		setM(new Tiempo(1, "s"));
 		super.setSb(m.getSb());
 		segundo = s.getSb();
@@ -56,9 +56,9 @@ public class Velocidad extends Magnitud {
 	public Velocidad(double velocidad, String unidadD, String unidadT) {
 		super(TipoMagnitud.VELOCIDAD);
 		if (m.cambioLocal(unidadD)) {
-			setM(new Metro(velocidad, unidadD));
+			setM(new LongInternacional(velocidad, unidadD));
 		} else {
-			setM(new Pie(velocidad, unidadD));
+			setM(new LongIngles(velocidad, unidadD));
 		}
 		setS(new Tiempo(1, unidadT));
 		super.setSistema(getM().getSistema());
@@ -70,9 +70,9 @@ public class Velocidad extends Magnitud {
 		super(TipoMagnitud.VELOCIDAD);
 		String[] aux = unidad.split("/");
 		if (m.cambioLocal(aux[0])) {
-			setM(new Metro(velocidad, aux[0]));
+			setM(new LongInternacional(velocidad, aux[0]));
 		} else {
-			setM(new Pie(velocidad, aux[0]));
+			setM(new LongIngles(velocidad, aux[0]));
 		}
 		setS(new Tiempo(1, aux[1]));
 		super.setSistema(m.getSistema());

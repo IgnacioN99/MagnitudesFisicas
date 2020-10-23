@@ -3,40 +3,40 @@ package info.unlp.conversor.sistemaInternacional.derivadas;
 import info.unlp.conversor.CambioDeMagnitud;
 import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.TipoMagnitud;
-import info.unlp.conversor.sistemaIngles.Pie;
-import info.unlp.conversor.sistemaInternacional.Metro;
+import info.unlp.conversor.sistemaIngles.LongIngles;
+import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
 public class Volumen extends Magnitud {
 
-	private Magnitud m1 = new Metro(), m2, m3;
+	private Magnitud m1 = new LongInternacional(), m2, m3;
 
 	public Volumen(double cant1, double cant2, double cant3) {
 		super(TipoMagnitud.VOLUMEN, 1);
-		m1 = new Metro(cant1, "m");
-		m2 = new Metro(cant2, "m");
-		m3 = new Metro(cant3, "m");
+		m1 = new LongInternacional(cant1, "m");
+		m2 = new LongInternacional(cant2, "m");
+		m3 = new LongInternacional(cant3, "m");
 		super.setSb(m1.getSb());
 	}
 
 	public Volumen(double cant) {
 		super(TipoMagnitud.VOLUMEN, 1);
-		m1 = new Metro(cant, "m");
-		m2 = new Metro(1, "m");
-		m3 = new Metro(1, "m");
+		m1 = new LongInternacional(cant, "m");
+		m2 = new LongInternacional(1, "m");
+		m3 = new LongInternacional(1, "m");
 		super.setSb(m1.getSb());
 	}
 
 	public Volumen(double cant, String unidad) {
 		super(TipoMagnitud.VOLUMEN);
 		if (m1.cambioLocal(unidad)) {
-			m1 = new Metro(cant, unidad);
-			m2 = new Metro(1, unidad);
-			m3 = new Metro(1, unidad);
+			m1 = new LongInternacional(cant, unidad);
+			m2 = new LongInternacional(1, unidad);
+			m3 = new LongInternacional(1, unidad);
 			super.setSistema(1);
 		} else {
-			m1 = new Pie(cant, unidad);
-			m2 = new Pie(1, unidad);
-			m3 = new Pie(1, unidad);
+			m1 = new LongIngles(cant, unidad);
+			m2 = new LongIngles(1, unidad);
+			m3 = new LongIngles(1, unidad);
 			super.setSistema(2);
 		}
 		super.setSb(m1.getSb());
@@ -44,14 +44,14 @@ public class Volumen extends Magnitud {
 	public Volumen(double cant1, double cant2, double cant3, String unidad) {
 		super(TipoMagnitud.VOLUMEN);
 		if (m1.cambioLocal(unidad)) {
-			m1 = new Metro(cant1, unidad);
-			m2 = new Metro(cant2, unidad);
-			m3 = new Metro(cant3, unidad);
+			m1 = new LongInternacional(cant1, unidad);
+			m2 = new LongInternacional(cant2, unidad);
+			m3 = new LongInternacional(cant3, unidad);
 			super.setSistema(1);
 		} else {
-			m1 = new Pie(cant1, unidad);
-			m2 = new Pie(cant2, unidad);
-			m3 = new Pie(cant3, unidad);
+			m1 = new LongIngles(cant1, unidad);
+			m2 = new LongIngles(cant2, unidad);
+			m3 = new LongIngles(cant3, unidad);
 			super.setSistema(2);
 		}
 		super.setSb(m1.getSb());
