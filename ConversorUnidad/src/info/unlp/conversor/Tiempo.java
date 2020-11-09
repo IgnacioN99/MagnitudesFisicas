@@ -1,19 +1,38 @@
 package info.unlp.conversor;
 
+/**
+ * Clase Tiempo encargada de manejar los cambios de unidad del sistema.
+ */
 public class Tiempo extends Magnitud {
 
+	/**
+	 * Crea una nueva instancia de tiempo 
+	 *
+	 * @param cantidad tiempo
+	 * @param unidad unidad de medida
+	 */
 	public Tiempo(double cantidad, String unidad) {
 		super(TipoMagnitud.TIEMPO, 1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 
 	}
+	
+	/**
+	 * crea una nueva instancia de tiempo vacia
+	 */
 	public Tiempo() {
 		super(TipoMagnitud.TIEMPO,1);
 		super.setCantidad(0);
 		cambioLocal("s");
 	}
 
+	/**
+	 * Cambio local de unidad.
+	 *
+	 * @param unidad unidad a la que se quiere cambiar
+	 * @return resultado del cambio
+	 */
 	@Override
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
@@ -35,6 +54,9 @@ public class Tiempo extends Magnitud {
 
 	}
 
+	/**
+	 * Cambio H.
+	 */
 	private void cambioH() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -52,6 +74,9 @@ public class Tiempo extends Magnitud {
 		super.setSb(SubfijoTiempo.Hora);
 	}
 
+	/**
+	 * Cambio min.
+	 */
 	private void cambioMin() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -69,6 +94,9 @@ public class Tiempo extends Magnitud {
 		super.setSb(SubfijoTiempo.Minuto);
 	}
 
+	/**
+	 * Cambio ms.
+	 */
 	private void cambioMs() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -86,6 +114,9 @@ public class Tiempo extends Magnitud {
 		super.setSb(SubfijoTiempo.MiliSegundo);
 	}
 
+	/**
+	 * Cambio S.
+	 */
 	private void cambioS() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {

@@ -3,8 +3,9 @@ import info.unlp.conversor.Peso;
 import info.unlp.conversor.TipoMagnitud;
 
 /**
- * @author Nacho
+ * clase que manejara las magnitudes de peso ingles y sus cambios locales
  *
+ * @author Nacho
  */
 public class PesoIngles extends Peso {
 	/**
@@ -16,6 +17,11 @@ public class PesoIngles extends Peso {
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
+	
+	/**
+	 *Instancia un objeto de tipo peso ingles vacio 
+	 *util para verificar si la unidad pertenece al sistema 
+	 */
 	public PesoIngles() {
 		super(TipoMagnitud.LIBRA,2);
 		super.setCantidad(0);
@@ -24,6 +30,12 @@ public class PesoIngles extends Peso {
 
 
 
+	/**
+	 * Cambio local de unidad.
+	 *
+	 * @param unidad a la que se quiere cambiar
+	 * @return devuelve si el cambio fue satisfactorio o no
+	 */
 	@Override
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
@@ -53,7 +65,7 @@ public class PesoIngles extends Peso {
 				break;
 			}
 		}
-		super.setSb(SubfijoLibra.Grano);
+		super.setSb(SubfijoPesoIngles.Grano);
 	}
 	
 	private void cambioOz() {
@@ -67,7 +79,7 @@ public class PesoIngles extends Peso {
 				break;
 			}
 		}
-		super.setSb(SubfijoLibra.Onza);
+		super.setSb(SubfijoPesoIngles.Onza);
 	}
 
 	private void cambioLb() {
@@ -80,6 +92,6 @@ public class PesoIngles extends Peso {
 				super.setCantidad(getCantidad()/7000);
 			}
 		}
-		super.setSb(SubfijoLibra.Libra);
+		super.setSb(SubfijoPesoIngles.Libra);
 	}
 }

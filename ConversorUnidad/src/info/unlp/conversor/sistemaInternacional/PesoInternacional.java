@@ -4,13 +4,26 @@ import info.unlp.conversor.Peso;
 import info.unlp.conversor.TipoMagnitud;
 
 
-public class PesoInternacional extends Peso {
+/**
+ * Clase peso internacional encargada de manejar los cambios de longitud de un mismo sistema
+ */
+	public class PesoInternacional extends Peso {
 
+	/**
+	 * Crea una nueva instancia de pesointernacional donde se le pasa el peso y su unidad de medida
+	 *
+	 * @param cantidad peso
+	 * @param unidad unidad de medida
+	 */
 	public PesoInternacional(double cantidad, String unidad) {
 		super(TipoMagnitud.KILOGRAMOS, 1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
+	
+	/**
+	 * Instancia un peso internacional vacio, util para verificar si una unidad pertenece al sistema
+	 */
 	public PesoInternacional() {
 		super(TipoMagnitud.KILOGRAMOS, 1);
 		super.setCantidad(0);
@@ -18,6 +31,12 @@ public class PesoInternacional extends Peso {
 	}
 
 
+	/**
+	 * Cambio local de unidad.
+	 *
+	 * @param unidad unidad a la que se quiere cambiar
+	 * @return resultado del cambio
+	 */
 	@Override
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
@@ -38,6 +57,9 @@ public class PesoInternacional extends Peso {
 		}
 	}
 
+	/**
+	 * Cambiomg.
+	 */
 	private void cambiomg() {
 		if (super.getSb() != null)
 			switch (super.getSb().abrev()) {
@@ -53,9 +75,12 @@ public class PesoInternacional extends Peso {
 			default:
 				break;
 			}
-		super.setSb(SubfijoKilogramos.Miligramo);
+		super.setSb(SubfijoPesoInternacional.Miligramo);
 	}
 
+	/**
+	 * Cambiog.
+	 */
 	private void cambiog() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -73,9 +98,12 @@ public class PesoInternacional extends Peso {
 			}
 		}
 
-		super.setSb(SubfijoKilogramos.Gramo);
+		super.setSb(SubfijoPesoInternacional.Gramo);
 	}
 
+	/**
+	 * Cambiokg.
+	 */
 	private void cambiokg() {
 		if (super.getSb() != null)
 			switch (super.getSb().abrev()) {
@@ -91,9 +119,12 @@ public class PesoInternacional extends Peso {
 			default:
 				break;
 			}
-		super.setSb(SubfijoKilogramos.Kilogramo);
+		super.setSb(SubfijoPesoInternacional.Kilogramo);
 	}
 
+	/**
+	 * Cambioton.
+	 */
 	private void cambioton() {
 		if (super.getSb() != null)
 			switch (super.getSb().abrev()) {
@@ -109,7 +140,7 @@ public class PesoInternacional extends Peso {
 			default:
 				break;
 			}
-		super.setSb(SubfijoKilogramos.Tonelada);
+		super.setSb(SubfijoPesoInternacional.Tonelada);
 	}
 
 

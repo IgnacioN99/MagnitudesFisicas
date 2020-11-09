@@ -11,7 +11,7 @@ import info.unlp.conversor.sistemaIngles.LongIngles;
 import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
 public class Main {
-
+	/**/
 	public static void main(String[] args) {
 		List<LongIngles> l = new LinkedList<LongIngles>();
 		SondaEspacial<LongInternacional> sonda = new SondaEspacial<LongInternacional>();

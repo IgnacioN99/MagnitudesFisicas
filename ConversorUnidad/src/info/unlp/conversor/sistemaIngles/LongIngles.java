@@ -2,18 +2,41 @@ package info.unlp.conversor.sistemaIngles;
 import info.unlp.conversor.Longitud;
 import info.unlp.conversor.TipoMagnitud;
 
+// TODO: Auto-generated Javadoc
+/**
+ * Clase longitud ingles. Es la encargada de manejar las longitudes en ingles y sus cambios
+ * @author Nacho
+ */
 public class LongIngles extends Longitud {
+	
+	/**
+	 * Instancia una nueva longitud en sistema ingles.
+	 *
+	 * @param cantidad Cantidad de la unidad inglesa
+	 * @param unidad unidad en la que se trabajara
+	 */
 	public LongIngles(double cantidad,String unidad) {
 		super(TipoMagnitud.PIE,2);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
+	
+	/**
+	 * Instancia una nueva longitud vacia en el sistema ingles
+	 * 	util para saber si una unidad pertenece al sistema mencionado
+	 */
 	public LongIngles() {
 		super(TipoMagnitud.PIE,2);
 		super.setCantidad(0);
 		cambioLocal("ft");
 	}
 	
+	/**
+	 * Cambio local de unidad
+	 *
+	 * @param unidad a la que se quiere cambiar
+	 * @return devuelve el resultado del cambio
+	 */
 	public boolean cambioLocal(String unidad) {
 		switch (unidad.toLowerCase()) {
 		case "mi":
@@ -33,6 +56,9 @@ public class LongIngles extends Longitud {
 		}
 	}
 	
+	/**
+	 * Cambioft.
+	 */
 	private void cambioft() {
 		if(super.getSb()!=null) {
 			switch (super.getSb().abrev()) {
@@ -47,9 +73,12 @@ public class LongIngles extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoPie.pie);
+		super.setSb(SubfijoLongIngles.pie);
 	}
 	
+	/**
+	 * Cambioyd.
+	 */
 	private void cambioyd() {
 		if(super.getSb()!=null) {
 			switch (super.getSb().abrev()) {
@@ -64,9 +93,12 @@ public class LongIngles extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoPie.yarda);
+		super.setSb(SubfijoLongIngles.yarda);
 	}
 	
+	/**
+	 * Cambiomi.
+	 */
 	private void cambiomi() {
 		if(super.getSb()!=null) {
 			switch (super.getSb().abrev()) {
@@ -81,9 +113,12 @@ public class LongIngles extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoPie.milla);
+		super.setSb(SubfijoLongIngles.milla);
 	}
 	
+	/**
+	 * Cambioin.
+	 */
 	private void cambioin() {
 		if(super.getSb()!=null) {
 			switch (super.getSb().abrev()) {
@@ -98,7 +133,7 @@ public class LongIngles extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoPie.pulgadas);
+		super.setSb(SubfijoLongIngles.pulgadas);
 	}
 
 }

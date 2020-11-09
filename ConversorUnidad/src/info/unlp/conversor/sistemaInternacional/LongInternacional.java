@@ -3,13 +3,26 @@ package info.unlp.conversor.sistemaInternacional;
 import info.unlp.conversor.Longitud;
 import info.unlp.conversor.TipoMagnitud;
 
+/**
+ * Clase longitud internacional encargada de manejar los cambios de longitud de un mismo sistema
+ */
 public class LongInternacional extends Longitud {
 
+	/**
+	 * Crea una nueva instancia de longinternacional en donde se le pasa la medida y su unidad
+	 *
+	 * @param cantidad medida
+	 * @param unidad unidad
+	 */
 	public LongInternacional(double cantidad, String unidad) {
 		super(TipoMagnitud.METRO, 1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
+	
+	/**
+	 * Instancia una longinternacional vacia, util para verificar si una unidad pertenece al sistema
+	 */
 	public LongInternacional() {
 		super(TipoMagnitud.METRO,1);
 		super.setCantidad(0);
@@ -17,6 +30,12 @@ public class LongInternacional extends Longitud {
 	}
 	
 
+	/**
+	 * Cambio de unidad local.
+	 *
+	 * @param unidad a la que se quiere cambiar
+	 * @return resultado del cambio
+	 */
 	@Override
 	public boolean cambioLocal(String unidad) {
 		// TODO Auto-generated method stub
@@ -39,6 +58,9 @@ public class LongInternacional extends Longitud {
 
 	}
 
+	/**
+	 * Cambio cm.
+	 */
 	private void cambioCm() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -54,9 +76,12 @@ public class LongInternacional extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoMetro.CentiMetro);
+		super.setSb(SubfijoLongIternacional.CentiMetro);
 	}
 
+	/**
+	 * Cambiomm.
+	 */
 	private void cambiomm() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -72,9 +97,12 @@ public class LongInternacional extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoMetro.MiliMetro);
+		super.setSb(SubfijoLongIternacional.MiliMetro);
 	}
 	
+	/**
+	 * Cambiokm.
+	 */
 	private void cambiokm() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -90,9 +118,12 @@ public class LongInternacional extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoMetro.KiloMetro);
+		super.setSb(SubfijoLongIternacional.KiloMetro);
 	}
 
+	/**
+	 * Cambio M.
+	 */
 	private void cambioM() {
 		if (super.getSb() != null) {
 			switch (super.getSb().abrev()) {
@@ -108,6 +139,6 @@ public class LongInternacional extends Longitud {
 				break;
 			}
 		}
-		super.setSb(SubfijoMetro.Metro);
+		super.setSb(SubfijoLongIternacional.Metro);
 	}
 }

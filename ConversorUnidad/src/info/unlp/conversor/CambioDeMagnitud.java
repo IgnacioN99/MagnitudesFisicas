@@ -8,13 +8,35 @@ import info.unlp.conversor.sistemaInternacional.derivadas.Superficie;
 import info.unlp.conversor.sistemaInternacional.derivadas.Velocidad;
 import info.unlp.conversor.sistemaInternacional.derivadas.Volumen;
 
+/**
+ * Clase encargada de realizar los cambios entre sistema. La clase es de tipo SINGLETON
+ */
 public class CambioDeMagnitud {
+	/* unica instancia de tipo CambioDeMagnitud*/
 	private static CambioDeMagnitud instancia=new CambioDeMagnitud();
+	
+	/**
+	 * Instancia un nuevo cambio de magnitud.
+	 */
 	private CambioDeMagnitud() {
 	}
+	
+	/**
+	 * metodo estatico que obtiene el cambio de magnitud
+	 *
+	 * @return la instancia de magnitud
+	 */
 	public static CambioDeMagnitud getInstance() {
 		return instancia;
 	}
+	
+	/**
+	 * Cambiar sistema.
+	 *
+	 * @param unidad unidad a la que se quiere cambiar
+	 * @param algo magnitud a cambiar
+	 * @return the magnitud cambiada de sistema
+	 */
 	public Magnitud cambiarSistema(String unidad, Magnitud algo) {
 		switch (algo.getId()) {
 		case METRO:
@@ -36,6 +58,8 @@ public class CambioDeMagnitud {
 			return null;
 		}
 	}
+	
+	/*********Metodos encargados del cambio de sistema*********/
 	private Magnitud cambiarSistema(String unidad, Volumen vol) {
 		Volumen v=vol;
 		v.setM1(this.cambiarSistema(unidad, v.getM1()));
@@ -43,6 +67,8 @@ public class CambioDeMagnitud {
 		v.setM2(this.cambiarSistema(unidad, v.getM2()));
 		return v;
 	}
+	
+
 	private Magnitud cambiarSistema(String unidad, LongInternacional distIntl) {
 		LongIngles m;
 		distIntl.cambioLocal("m");
@@ -67,6 +93,7 @@ public class CambioDeMagnitud {
 		return m;
 	}
 
+
 	private Magnitud cambiarSistema(String unidad, LongIngles distIng) {
 		LongInternacional m;
 		distIng.cambioLocal("ft");
@@ -74,6 +101,8 @@ public class CambioDeMagnitud {
 		m.cambioLocal(unidad);
 		return m;
 	}
+	
+
 	private Magnitud cambiarSistema(Superficie sup, String unidad) {
 		Superficie s=sup;
 		s.setM1(this.cambiarSistema(unidad, s.getM1()));
@@ -81,11 +110,13 @@ public class CambioDeMagnitud {
 		s.setSistema(s.getM1().getSistema());
 		return s;
 	}
+	
+
 	private Magnitud cambiarSistema(String unidadD,String unidadT, Velocidad vel) {
 		Velocidad v=vel;
 		v.setM(this.cambiarSistema(unidadD, v.getM()));
 		v.getS().cambioLocal(unidadT);
 		return v;
 	}
-
+	/*********Metodos encargados del cambio de sistema*********/
 }

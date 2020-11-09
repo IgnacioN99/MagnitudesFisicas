@@ -1,21 +1,15 @@
 package info.unlp.conversor;
-
+/*Enum que contiene los subfijos utilizados en las unidades de tiempo*/
 public enum SubfijoTiempo implements Subfijo {
-	MiliSegundo("ms", 0.001), Segundo("s", 1), Minuto("min", 60), Hora("h", 3600);
+	MiliSegundo("ms"), Segundo("s"), Minuto("min"), Hora("h");
 
 	private String abrev;
-	private double multiplicador;
 
-	SubfijoTiempo(String tipo, double mult) {
+	SubfijoTiempo(String tipo) {
 		this.abrev = tipo;
-		this.multiplicador = mult;
 	}
 
 	public String abrev() {
 		return this.abrev;
-	}
-
-	public double mult() {
-		return this.multiplicador;
 	}
 }
