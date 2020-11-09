@@ -1,15 +1,14 @@
 package info.unlp.conversor.sistemaIngles;
 import info.unlp.conversor.Longitud;
-import info.unlp.conversor.TipoMagnitud;
 
 public class LongIngles extends Longitud {
 	public LongIngles(double cantidad,String unidad) {
-		super(TipoMagnitud.PIE,2);
+		super(2);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
 	public LongIngles() {
-		super(TipoMagnitud.PIE,2);
+		super(2);
 		super.setCantidad(0);
 		cambioLocal("ft");
 	}

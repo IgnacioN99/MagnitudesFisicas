@@ -37,7 +37,7 @@ public class Main {
 			System.out.println(p.toString());
 			aux = CambioDeMagnitud.getInstance().cambiarSistema("m", p);
 			System.out.println("Convertido!");
-			sonda.imprimirMagnitud((LongInternacional) aux);
+			sonda.imprimirMagnitud((LongInternacional)aux);
 
 		}
 		s.close();

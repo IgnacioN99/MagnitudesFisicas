@@ -2,7 +2,6 @@ package info.unlp.conversor.sistemaInternacional.derivadas;
 
 import info.unlp.conversor.CambioDeMagnitud;
 import info.unlp.conversor.Magnitud;
-import info.unlp.conversor.TipoMagnitud;
 import info.unlp.conversor.sistemaIngles.LongIngles;
 import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
@@ -11,50 +10,46 @@ public class Volumen extends Magnitud {
 	private Magnitud m1 = new LongInternacional(), m2, m3;
 
 	public Volumen(double cant1, double cant2, double cant3) {
-		super(TipoMagnitud.VOLUMEN, 1);
+		super(1);
 		m1 = new LongInternacional(cant1, "m");
 		m2 = new LongInternacional(cant2, "m");
 		m3 = new LongInternacional(cant3, "m");
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M3);
 	}
 
 	public Volumen(double cant) {
-		super(TipoMagnitud.VOLUMEN, 1);
+		super(1);
 		m1 = new LongInternacional(cant, "m");
 		m2 = new LongInternacional(1, "m");
 		m3 = new LongInternacional(1, "m");
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M3);
 	}
 
 	public Volumen(double cant, String unidad) {
-		super(TipoMagnitud.VOLUMEN);
+		super(1);
 		if (m1.cambioLocal(unidad)) {
 			m1 = new LongInternacional(cant, unidad);
 			m2 = new LongInternacional(1, unidad);
 			m3 = new LongInternacional(1, unidad);
-			super.setSistema(1);
 		} else {
 			m1 = new LongIngles(cant, unidad);
 			m2 = new LongIngles(1, unidad);
 			m3 = new LongIngles(1, unidad);
-			super.setSistema(2);
 		}
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M3);
 	}
 	public Volumen(double cant1, double cant2, double cant3, String unidad) {
-		super(TipoMagnitud.VOLUMEN);
+		super(1);
 		if (m1.cambioLocal(unidad)) {
 			m1 = new LongInternacional(cant1, unidad);
 			m2 = new LongInternacional(cant2, unidad);
 			m3 = new LongInternacional(cant3, unidad);
-			super.setSistema(1);
 		} else {
 			m1 = new LongIngles(cant1, unidad);
 			m2 = new LongIngles(cant2, unidad);
 			m3 = new LongIngles(cant3, unidad);
-			super.setSistema(2);
 		}
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M3);
 	}
 
 	@Override
@@ -95,10 +90,10 @@ public class Volumen extends Magnitud {
 		Magnitud ret=null;
 		if(this.getSistema()!=m.getSistema()) {
 			Magnitud aux=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
-			ret= new Volumen(aux.getCantidad()+this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(aux.getCantidad()+this.getCantidad(),this.m1.getSb().abrev());
 		}else {
 			m.cambioLocal(this.getSb().abrev());
-			ret= new Volumen(m.getCantidad()+this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(m.getCantidad()+this.getCantidad(),this.m1.getSb().abrev());
 		}
 		return ret;
 	}
@@ -106,10 +101,10 @@ public class Volumen extends Magnitud {
 		Magnitud ret=null;
 		if(this.getSistema()!=m.getSistema()) {
 			Magnitud aux=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
-			ret= new Volumen(aux.getCantidad()-this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(aux.getCantidad()-this.getCantidad(),this.m1.getSb().abrev());
 		}else {
 			m.cambioLocal(this.getSb().abrev());
-			ret= new Volumen(m.getCantidad()-this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(m.getCantidad()-this.getCantidad(),this.m1.getSb().abrev());
 		}
 		return ret;
 	}
@@ -117,7 +112,7 @@ public class Volumen extends Magnitud {
 		if(this.getSistema()!=m.getSistema()) {
 			m=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
 		}else {
-			m.cambioLocal(this.getSb().abrev());
+			m.cambioLocal(this.m1.getSb().abrev());
 		}
 		if (this.getCantidad() == m.getCantidad())
 			return 0;

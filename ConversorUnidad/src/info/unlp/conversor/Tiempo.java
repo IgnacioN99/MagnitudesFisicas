@@ -3,13 +3,13 @@ package info.unlp.conversor;
 public class Tiempo extends Magnitud {
 
 	public Tiempo(double cantidad, String unidad) {
-		super(TipoMagnitud.TIEMPO, 1);
+		super(1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 
 	}
 	public Tiempo() {
-		super(TipoMagnitud.TIEMPO,1);
+		super(1);
 		super.setCantidad(0);
 		cambioLocal("s");
 	}

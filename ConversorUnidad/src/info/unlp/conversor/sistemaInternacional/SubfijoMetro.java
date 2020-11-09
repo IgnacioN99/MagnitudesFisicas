@@ -15,4 +15,8 @@ public enum SubfijoMetro implements Subfijo {
 	public String abrev() {
 		return this.abrev;
 	}
+	@Override
+	public TipoMagnitud getTipoMagnitud() {
+		return TipoMagnitud.LONGINT;
+	}
 }

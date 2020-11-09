@@ -2,25 +2,52 @@ package info.unlp.conversor.sistemaInternacional.derivadas;
 
 import info.unlp.conversor.CambioDeMagnitud;
 import info.unlp.conversor.Magnitud;
-import info.unlp.conversor.TipoMagnitud;
 import info.unlp.conversor.sistemaIngles.LongIngles;
 import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
+<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
 public class Superficie extends Magnitud {
+=======
+/**
+ * Clase superficie que se encarga de manejar los cambios locales de sistema y contiene sobreescrito los metodos de suma,resta y comparacion del mismo
+ */
+public class Area extends Magnitud {
+>>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 
 	private Magnitud m1=new LongInternacional(),m2=new LongInternacional();
 
+<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
 	public Superficie(double cant1, double cant2) {
 		super(TipoMagnitud.SUP,1);
+=======
+	/**
+	 * Crea una nueva superficie
+	 *
+	 * @param cant1 primera medida
+	 * @param cant2 degunda medida
+	 */
+	public Area(double cant1, double cant2) {
+		super(1);
+>>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 		m1 = new LongInternacional(cant1,"m");
 		m2= new LongInternacional(cant2,"m");
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M2);
 	}
 	
+<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
 	
 	public Superficie(double cant, String unidad) {
+=======
+	/**
+	 * Crea una nueva superficie
+	 *
+	 * @param cant cantidad total de la superficie
+	 * @param unidad unidad de la superficie
+	 */
+	public Area(double cant, String unidad) {
+>>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 		// TODO Auto-generated constructor stub
-		super(TipoMagnitud.SUP);
+		super(1);
 		if(m1.cambioLocal(unidad)) {
 			m1= new LongInternacional(1,unidad);
 			m2= new LongInternacional(cant,unidad);
@@ -28,11 +55,23 @@ public class Superficie extends Magnitud {
 			m1= new LongIngles(1,unidad);
 			m2= new LongIngles(cant,unidad);	
 		}
-		super.setSistema(m1.getSistema());
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M2);
 	}
+<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
 	public Superficie(double cant1, double cant2, String unidad) {
 		super(TipoMagnitud.SUP);
+=======
+	
+	/**
+	 * Instantiates a new superficie.
+	 *
+	 * @param cant1 primera medida
+	 * @param cant2 degunda medida
+	 * @param unidad unidad de la superficie
+	 */
+	public Area(double cant1, double cant2, String unidad) {
+		super(1);
+>>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 		if(m1.cambioLocal(unidad)) {
 			m1= new LongInternacional(cant1,unidad);
 			m2= new LongInternacional(cant2,unidad);
@@ -40,8 +79,7 @@ public class Superficie extends Magnitud {
 			m1= new LongIngles(cant1,unidad);
 			m2= new LongIngles(cant2,unidad);	
 		}
-		super.setSistema(m1.getSistema());
-		super.setSb(m1.getSb());
+		super.setSb(SubfijoDerivadas.M2);
 	}
 
 	@Override
@@ -78,10 +116,10 @@ public class Superficie extends Magnitud {
 		Magnitud ret=null;
 		if(this.getSistema()!=m.getSistema()) {
 			Magnitud aux=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
-			ret= new Volumen(aux.getCantidad()+this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(aux.getCantidad()+this.getCantidad(),this.m1.getSb().abrev());
 		}else {
 			m.cambioLocal(this.getSb().abrev());
-			ret= new Volumen(m.getCantidad()+this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(m.getCantidad()+this.getCantidad(),this.m1.getSb().abrev());
 		}
 		return ret;
 	}
@@ -89,10 +127,10 @@ public class Superficie extends Magnitud {
 		Magnitud ret=null;
 		if(this.getSistema()!=m.getSistema()) {
 			Magnitud aux=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
-			ret= new Volumen(aux.getCantidad()-this.getCantidad(),this.getSb().abrev());
+			ret= new Volumen(aux.getCantidad()-this.getCantidad(),this.m1.getSb().abrev());
 		}else {
-			m.cambioLocal(this.getSb().abrev());
-			ret= new Volumen(m.getCantidad()-this.getCantidad(),this.getSb().abrev());
+			m.cambioLocal(this.m1.getSb().abrev());
+			ret= new Volumen(m.getCantidad()-this.getCantidad(),this.m1.getSb().abrev());
 		}
 		return ret;
 	}
@@ -101,7 +139,7 @@ public class Superficie extends Magnitud {
 		if(this.getSistema()!=m.getSistema()) {
 			m=CambioDeMagnitud.getInstance().cambiarSistema(this.m1.getSb().abrev(), m);
 		}else {
-			m.cambioLocal(this.getSb().abrev());
+			m.cambioLocal(this.m1.getSb().abrev());
 		}
 		if (this.getCantidad() == m.getCantidad())
 			return 0;

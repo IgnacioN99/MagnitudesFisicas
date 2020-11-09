@@ -1,6 +1,5 @@
 package info.unlp.conversor.sistemaIngles;
 import info.unlp.conversor.Peso;
-import info.unlp.conversor.TipoMagnitud;
 
 /**
  * @author Nacho
@@ -12,12 +11,12 @@ public class PesoIngles extends Peso {
 	 * @param unidad : unidad del parametro cantidad
 	 */
 	public PesoIngles(double cantidad,String unidad) {
-		super(TipoMagnitud.LIBRA,2);
+		super(2);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
 	public PesoIngles() {
-		super(TipoMagnitud.LIBRA,2);
+		super(2);
 		super.setCantidad(0);
 		cambioLocal("lb");
 	}

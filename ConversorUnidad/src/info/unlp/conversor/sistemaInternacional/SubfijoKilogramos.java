@@ -14,4 +14,9 @@ public enum SubfijoKilogramos implements Subfijo {
 	public String abrev() {
 		return this.abrev;
 	}
+	@Override
+	public TipoMagnitud getTipoMagnitud() {
+		// TODO Auto-generated method stub
+		return TipoMagnitud.PESOINT;
+	}
 }

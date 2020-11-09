@@ -15,7 +15,14 @@ public enum SubfijoTiempo implements Subfijo {
 		return this.abrev;
 	}
 
+<<<<<<< Updated upstream
 	public double mult() {
 		return this.multiplicador;
+=======
+	@Override
+	public TipoMagnitud getTipoMagnitud() {
+		// TODO Auto-generated method stub
+		return TipoMagnitud.TIEMPO;
+>>>>>>> Stashed changes
 	}
 }

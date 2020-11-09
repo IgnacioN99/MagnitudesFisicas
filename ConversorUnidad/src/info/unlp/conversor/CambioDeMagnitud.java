@@ -4,7 +4,7 @@ import info.unlp.conversor.sistemaIngles.PesoIngles;
 import info.unlp.conversor.sistemaIngles.LongIngles;
 import info.unlp.conversor.sistemaInternacional.PesoInternacional;
 import info.unlp.conversor.sistemaInternacional.LongInternacional;
-import info.unlp.conversor.sistemaInternacional.derivadas.Superficie;
+import info.unlp.conversor.sistemaInternacional.derivadas.Area;
 import info.unlp.conversor.sistemaInternacional.derivadas.Velocidad;
 import info.unlp.conversor.sistemaInternacional.derivadas.Volumen;
 
@@ -16,17 +16,17 @@ public class CambioDeMagnitud {
 		return instancia;
 	}
 	public Magnitud cambiarSistema(String unidad, Magnitud algo) {
-		switch (algo.getId()) {
-		case METRO:
+		switch (algo.getSb().getTipoMagnitud()) {
+		case LONGINT:
 			return cambiarSistema(unidad, (LongInternacional) algo);
-		case KILOGRAMOS:
+		case PESOINT:
 			return cambiarSistema(unidad, (PesoInternacional)algo);
-		case LIBRA:
+		case PESOING:
 			return cambiarSistema(unidad, (PesoIngles)algo);
-		case PIE:
+		case LONGING:
 			return cambiarSistema(unidad, (LongIngles)algo);
-		case SUP:
-			return cambiarSistema((Superficie)algo, unidad);
+		case AREA:
+			return cambiarSistema((Area)algo, unidad);
 		case VELOCIDAD:
 			String[] partes=unidad.split("/");
 			return cambiarSistema(partes[0], partes[1], (Velocidad)algo);
@@ -74,11 +74,17 @@ public class CambioDeMagnitud {
 		m.cambioLocal(unidad);
 		return m;
 	}
+<<<<<<< Updated upstream
 	private Magnitud cambiarSistema(Superficie sup, String unidad) {
 		Superficie s=sup;
+=======
+	
+
+	private Magnitud cambiarSistema(Area sup, String unidad) {
+		Area s=sup;
+>>>>>>> Stashed changes
 		s.setM1(this.cambiarSistema(unidad, s.getM1()));
 		s.setM2(this.cambiarSistema(unidad, s.getM2()));
-		s.setSistema(s.getM1().getSistema());
 		return s;
 	}
 	private Magnitud cambiarSistema(String unidadD,String unidadT, Velocidad vel) {

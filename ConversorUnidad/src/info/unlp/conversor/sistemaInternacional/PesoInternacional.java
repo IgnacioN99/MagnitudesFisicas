@@ -1,18 +1,17 @@
 package info.unlp.conversor.sistemaInternacional;
 
 import info.unlp.conversor.Peso;
-import info.unlp.conversor.TipoMagnitud;
 
 
 public class PesoInternacional extends Peso {
 
 	public PesoInternacional(double cantidad, String unidad) {
-		super(TipoMagnitud.KILOGRAMOS, 1);
+		super(1);
 		super.setCantidad(cantidad);
 		cambioLocal(unidad);
 	}
 	public PesoInternacional() {
-		super(TipoMagnitud.KILOGRAMOS, 1);
+		super(1);
 		super.setCantidad(0);
 		cambioLocal("kg");
 	}
