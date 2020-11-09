@@ -74,15 +74,10 @@ public class CambioDeMagnitud {
 		m.cambioLocal(unidad);
 		return m;
 	}
-<<<<<<< Updated upstream
-	private Magnitud cambiarSistema(Superficie sup, String unidad) {
-		Superficie s=sup;
-=======
 	
 
 	private Magnitud cambiarSistema(Area sup, String unidad) {
 		Area s=sup;
->>>>>>> Stashed changes
 		s.setM1(this.cambiarSistema(unidad, s.getM1()));
 		s.setM2(this.cambiarSistema(unidad, s.getM2()));
 		return s;

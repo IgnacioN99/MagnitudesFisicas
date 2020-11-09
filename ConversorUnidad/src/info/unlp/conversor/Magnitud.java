@@ -11,9 +11,6 @@ public abstract class Magnitud {
 	public Magnitud( int sistema) {
 		this.sistema = sistema;
 	}
-
-	public Magnitud(TipoMagnitud id) {
-		this.id = id;
 	/*Crea una nueva instancia de magnitud */
 	public Magnitud() {
 	}

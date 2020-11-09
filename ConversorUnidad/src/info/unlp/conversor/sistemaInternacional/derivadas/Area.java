@@ -5,21 +5,13 @@ import info.unlp.conversor.Magnitud;
 import info.unlp.conversor.sistemaIngles.LongIngles;
 import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
-<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
-public class Superficie extends Magnitud {
-=======
 /**
  * Clase superficie que se encarga de manejar los cambios locales de sistema y contiene sobreescrito los metodos de suma,resta y comparacion del mismo
  */
 public class Area extends Magnitud {
->>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 
 	private Magnitud m1=new LongInternacional(),m2=new LongInternacional();
 
-<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
-	public Superficie(double cant1, double cant2) {
-		super(TipoMagnitud.SUP,1);
-=======
 	/**
 	 * Crea una nueva superficie
 	 *
@@ -28,16 +20,10 @@ public class Area extends Magnitud {
 	 */
 	public Area(double cant1, double cant2) {
 		super(1);
->>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 		m1 = new LongInternacional(cant1,"m");
 		m2= new LongInternacional(cant2,"m");
 		super.setSb(SubfijoDerivadas.M2);
-	}
-	
-<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
-	
-	public Superficie(double cant, String unidad) {
-=======
+	}	
 	/**
 	 * Crea una nueva superficie
 	 *
@@ -45,7 +31,6 @@ public class Area extends Magnitud {
 	 * @param unidad unidad de la superficie
 	 */
 	public Area(double cant, String unidad) {
->>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 		// TODO Auto-generated constructor stub
 		super(1);
 		if(m1.cambioLocal(unidad)) {
@@ -57,10 +42,6 @@ public class Area extends Magnitud {
 		}
 		super.setSb(SubfijoDerivadas.M2);
 	}
-<<<<<<< Updated upstream:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Superficie.java
-	public Superficie(double cant1, double cant2, String unidad) {
-		super(TipoMagnitud.SUP);
-=======
 	
 	/**
 	 * Instantiates a new superficie.
@@ -71,7 +52,6 @@ public class Area extends Magnitud {
 	 */
 	public Area(double cant1, double cant2, String unidad) {
 		super(1);
->>>>>>> Stashed changes:ConversorUnidad/src/info/unlp/conversor/sistemaInternacional/derivadas/Area.java
 		if(m1.cambioLocal(unidad)) {
 			m1= new LongInternacional(cant1,unidad);
 			m2= new LongInternacional(cant2,unidad);

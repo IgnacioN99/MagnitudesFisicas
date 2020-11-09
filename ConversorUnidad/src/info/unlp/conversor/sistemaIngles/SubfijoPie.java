@@ -1,3 +1,4 @@
+
 package info.unlp.conversor.sistemaIngles;
 
 import info.unlp.conversor.Subfijo;
@@ -13,5 +14,10 @@ public enum SubfijoPie implements Subfijo {
 	}
 	public String abrev() {
 		return this.abrev;
+	}
+	@Override
+	public TipoMagnitud getTipoMagnitud() {
+		// TODO Auto-generated method stub
+		return TipoMagnitud.LONGING;
 	}
 }

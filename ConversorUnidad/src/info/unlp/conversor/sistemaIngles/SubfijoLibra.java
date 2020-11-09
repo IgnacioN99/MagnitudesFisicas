@@ -13,4 +13,9 @@ public enum SubfijoLibra implements Subfijo {
 	public String abrev() {
 		return this.abrev;
 	}
+	@Override
+	public TipoMagnitud getTipoMagnitud() {
+		// TODO Auto-generated method stub
+		return TipoMagnitud.PESOING;
+	}
 }
