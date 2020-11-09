@@ -4,30 +4,18 @@ import info.unlp.conversor.sistemaIngles.LongIngles;
 import info.unlp.conversor.sistemaInternacional.LongInternacional;
 
 public abstract class Magnitud {
-<<<<<<< Updated upstream
-	private TipoMagnitud id = null;
-	private Subfijo sb = null;
-	private double cantidad;
-	private int sistema;
-
-	public Magnitud(TipoMagnitud id, int sistema) {
-=======
 	private Subfijo sb = null; //Subfijo de la magnitud
 	private double cantidad; //medida 
 	private int sistema; //sistema que maneja 1(Sistema internacional) o 2 (Sistema Ingles)
 	/*Crea una nueva instancia de magnitud en la que se le especifica el tipo y el sistema en el que se trabajara*/
 	public Magnitud( int sistema) {
->>>>>>> Stashed changes
 		this.sistema = sistema;
 	}
-<<<<<<< Updated upstream
 
 	public Magnitud(TipoMagnitud id) {
 		this.id = id;
-=======
 	/*Crea una nueva instancia de magnitud */
 	public Magnitud() {
->>>>>>> Stashed changes
 	}
 
 	/**
